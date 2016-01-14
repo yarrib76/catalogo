@@ -9,7 +9,7 @@
         <span class="sr-only">Toggle Navigation</span>
     </button>
 
-        <a href="/" class="navbar-brand">Deportes</a>
+        <a href="/" class="navbar-brand">Catalogos</a>
 
 
 </div>{{-- navbar-header--}}
