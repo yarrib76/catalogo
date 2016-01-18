@@ -17,12 +17,11 @@
     @if (Auth::check())
         <ul class="nav navbar-nav">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle fa fa-btn" data-toggle="dropdown">
-                    Actividades <b class="caret"></b>
+                <a href="/catalogos" class="dropdown-toggle fa fa-btn" data-toggle="dropdown">
+                    Catalogos <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="/actividad"> Crear </a></li>
-                    <li><a href="/asignarprofesor"> Asignar a un Profesor </a></li>
+                    <li><a href="/catalogos"> ABM </a></li>
                 </ul>
             </li>
             <li class="dropdown">

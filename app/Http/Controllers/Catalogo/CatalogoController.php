@@ -1,9 +1,11 @@
-<?php namespace Catalogos\Http\Controllers;
+<?php namespace Catalogos\Http\Controllers\Catalogo;
 
 use Catalogos\Http\Requests;
 use Catalogos\Http\Controllers\Controller;
 
+use Catalogos\Models\Catalogos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CatalogoController extends Controller {
 
@@ -14,7 +16,17 @@ class CatalogoController extends Controller {
 	 */
 	public function index()
 	{
-		//
+        $usuario = Auth::user();
+        if (!$usuario->miembrosDe()->get()->isEmpty())
+        {
+            $cliente = $usuario->miembrosDe()->get()[0]->clientes()->
+            get()[0];
+            $catalogos = Catalogos::where('cliente_id', $cliente->id)->get();
+            return view('catalogos.reporte', compact('catalogos'));
+        }else {
+            dd('vacio');
+        }
+
 	}
 
 	/**
@@ -24,7 +36,11 @@ class CatalogoController extends Controller {
 	 */
 	public function create()
 	{
-		//
+        Catalogos::create([
+        'title' => Input::get('title'),
+        'cliente_id' => Input::get('cliente_id'),
+        //  'url' => Input::get('url')
+    ]);
 	}
 
 	/**

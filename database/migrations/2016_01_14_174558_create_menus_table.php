@@ -16,7 +16,9 @@ class CreateMenusTable extends Migration {
 		{
 			$table->increments('id');
             $table->string('titulo');
-			$table->timestamps();
+            $table->integer('catalogo_id')->unsigned();
+            $table->foreign('catalogo_id')->references('id')->on('catalogos')->onDelete('cascade');
+            $table->timestamps();
         });
 	}
 

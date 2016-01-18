@@ -11,9 +11,16 @@
 |
 */
 
+Route::model('usuario', 'Catalogos\User');
+
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 //Route::get('home', ['as' => 'home', 'uses' => 'Catalogos\CatalogosController@index']);
-Route::get('home', 'CatalogosController@index');
+Route::resource('home', 'Catalogo\CatalogoController');
+
+
+Route::resource('catalogos', 'Catalogo\CatalogoController');
+Route::resource('menus', 'Menu\MenuController');
+Route::resource('submenus', 'Submenu\SubMenuController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
