@@ -12,7 +12,8 @@
 */
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-
+//Route::get('home', ['as' => 'home', 'uses' => 'Catalogos\CatalogosController@index']);
+Route::get('home', 'CatalogosController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

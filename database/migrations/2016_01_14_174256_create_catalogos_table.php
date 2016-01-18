@@ -12,7 +12,7 @@ class CreateCatalogosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('catalogos', function(Blueprint $table)
+		Schema::create('Catalogos', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->timestamps();
@@ -30,7 +30,7 @@ class CreateCatalogosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('catalogos');
+		Schema::drop('Catalogos');
 	}
 
 }
