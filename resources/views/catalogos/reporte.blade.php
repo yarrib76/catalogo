@@ -29,7 +29,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    {!! HTML::linkRoute('catalogos.create', ' Crear Catalogo', null , ['class' => 'btn btn-primary '] ) !!}
+                                    {!! HTML::linkRoute('catalogos.create', ' Crear Catalogo', ['cliente_id' => $cliente->id] , ['class' => 'btn btn-primary '] ) !!}
                                 </td>
                             </tr>
                         </table>

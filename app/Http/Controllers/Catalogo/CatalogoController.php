@@ -6,6 +6,7 @@ use Catalogos\Http\Controllers\Controller;
 use Catalogos\Models\Catalogos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class CatalogoController extends Controller {
 
@@ -22,7 +23,7 @@ class CatalogoController extends Controller {
             $cliente = $usuario->miembrosDe()->get()[0]->clientes()->
             get()[0];
             $catalogos = Catalogos::where('cliente_id', $cliente->id)->get();
-            return view('catalogos.reporte', compact('catalogos'));
+            return view('catalogos.reporte', compact('catalogos','cliente'));
         }else {
             dd('vacio');
         }
@@ -36,12 +37,10 @@ class CatalogoController extends Controller {
 	 */
 	public function create()
 	{
-        Catalogos::create([
-        'title' => Input::get('title'),
-        'cliente_id' => Input::get('cliente_id'),
-        //  'url' => Input::get('url')
-    ]);
-	}
+        $cliente_id = Input::get('cliente_id');
+        return view ('catalogos.nuevo', compact('cliente_id'));
+
+    }
 
 	/**
 	 * Store a newly created resource in storage.
@@ -50,7 +49,11 @@ class CatalogoController extends Controller {
 	 */
 	public function store()
 	{
-		//
+        Catalogos::create([
+            'nombre' => Input::get('catalogo'),
+            'cliente_id' => Input::get('cliente_id'),
+        ]);
+        return redirect()->route('catalogos.index');
 	}
 
 	/**
