@@ -22,8 +22,10 @@ class MenuController extends Controller {
             $nombreCatalogo = Catalogos::find(Input::get('catalogo_id'))->nombre;
             return view('menu.reporte', compact('menus','nombreCatalogo'));
         }
-            //Hay que cambiar por error desde HTML
-            dd('No hay Menus para este catalogo');
+        $nombreCatalogo="";
+        return view('menu.reporte', compact('menus','nombreCatalogo'));
+        //Hay que cambiar por error desde HTML
+        dd('No hay Menus para este catalogo');
         }
 
 	/**
@@ -87,7 +89,10 @@ class MenuController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
-	}
+		$menus = Menu::find($id);
+        $catalogo_id = $menus->catalogo_id;
+        $menus->delete();
+        return redirect()->route('menus.index',['catalogo_id' =>$catalogo_id]);
+    }
 
 }

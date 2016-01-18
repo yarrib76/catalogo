@@ -97,7 +97,9 @@ class CatalogoController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
-	}
+		$catalogo = Catalogos::find($id);
+        $catalogo->delete();
+        return redirect()->route('catalogos.index');
+    }
 
 }
