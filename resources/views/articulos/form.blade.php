@@ -14,21 +14,21 @@
 <div class="form-group">
     {!! Form::label('imagen', 'Primera Imagen:', ['class' => 'col-sm-3 control-label']) !!}
     <div class="col-sm-6">
-         {!! Form::file('image_path_1', null) !!}
+         {!! Form::file('image_name_1', null) !!}
     </div>
 </div>
 
 <div class="form-group">
     {!! Form::label('imagen', 'Segunda Imagen:', ['class' => 'col-sm-3 control-label']) !!}
     <div class="col-sm-6">
-        {!! Form::file('image_path_2', null) !!}
+        {!! Form::file('image_name_2', null) !!}
     </div>
 </div>
 
 <div class="form-group">
     {!! Form::label('imagen', 'Tercera Imagen:', ['class' => 'col-sm-3 control-label']) !!}
     <div class="col-sm-6">
-        {!! Form::file('image_path_3', null) !!}
+        {!! Form::file('image_name_3', null) !!}
     </div>
 </div>
 

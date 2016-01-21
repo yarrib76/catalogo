@@ -45,26 +45,35 @@ class ArticuloController extends Controller {
 	 */
 	public function store()
 	{
-        $imageName = Input::get('cod_articulo');
+        $imageName1 = Input::get('cod_articulo') . "1" . Carbon::now()->toDateTimeString();
+        $imageName2 = Input::get('cod_articulo') . "2" . Carbon::now()->toDateTimeString();
+        $imageName3 = Input::get('cod_articulo') . "3" . Carbon::now()->toDateTimeString();
+
       //  dd(Input::file('image_path_1')->originalName);
-        Input::file('image_path_1')->move(
+        Input::file('image_name_1')->move(
             base_path() . '/articulos/fabrics/',
-            $imageName . "1" . Carbon::now()->toDateTimeString() .  "." . Input::file('image_path_1')->getClientOriginalExtension());
+            $imageName1 . "."
+            . Input::file('image_name_1')->getClientOriginalExtension());
 
-        Input::file('image_path_2')->move(
+        Input::file('image_name_2')->move(
             base_path() . '/articulos/fabrics/',
-            $imageName . "2" . Carbon::now()->toDateTimeString() .  "."
-            . Input::file('image_path_2')->getClientOriginalExtension());
+            $imageName2 . "."
+            . Input::file('image_name_2')->getClientOriginalExtension());
 
-        Input::file('image_path_3')->move(
+        Input::file('image_name_3')->move(
             base_path() . '/articulos/fabrics/',
-            $imageName .  "3" . Carbon::now()->toDateTimeString() .  "."
-            . Input::file('image_path_3')->getClientOriginalExtension());
+            $imageName3 . "."
+            . Input::file('image_name_3')->getClientOriginalExtension());
 
-       // Articulos::create([
-       //     'descripcion' => Input::get('descripcion'),
-       //     'submenu_id' => Input::get('submenu_id'),
-       // ]);
+        Articulos::create([
+            'cod_articulo' => Input::get('cod_articulo'),
+            'descripcion' => Input::get('descripcion'),
+            'submenu_id' => Input::get('submenu_id'),
+            'image_name_1' => $imageName1,
+            'image_name_2' => $imageName2,
+            'image_name_3' => $imageName3,
+
+        ]);
         return redirect()->route('articulos.index',['submenu_id' => Input::get('submenu_id')]);
 
     }
