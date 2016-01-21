@@ -21,6 +21,7 @@ Route::resource('home', 'Catalogo\CatalogoController');
 Route::resource('catalogos', 'Catalogo\CatalogoController');
 Route::resource('menus', 'Menu\MenuController');
 Route::resource('submenus', 'Submenu\SubMenuController');
+Route::resource('articulos', 'Articulo\ArticuloController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-12 ">
                 <div class="panel panel-primary">
-                    <div class="panel-heading"><i class="fa fa-cog">SubMenu Para Menu: </i> {{{$menu->titulo}}}</div>
+                    <div class="panel-heading"><i class="fa fa-cog">Articulo Para Submenu: </i> {{{$submenu->titulo}}}</div>
                     <div class="panel-body">
                             <table id="reporte" class="table table-striped table-bordered records_list">
                                 <thead>
@@ -14,13 +14,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($subMenus as $subMenus)
+                                    @foreach($articulos as $articulos)
                                     <tr>
-                                        <td>{{$subMenus['titulo']}}</td>
+                                        <td>{{$articulos['descripcion']}}</td>
                                         <td>
-                                            {!! HTML::linkRoute('submenus.edit', ' Editar', $subMenus['id'] , ['class' => 'btn btn-primary'] ) !!}
-                                            {!! HTML::linkRoute('submenus.destroy', ' Borrar', $subMenus['id'] , ['class' => 'btn btn-danger', 'data-method' => 'DELETE','data-confirm' => '¿Seguro desea eliminar la Actividad ' . $subMenus['nombre'] . '?', 'rel' => 'nofollow']) !!}
-                                            {!! HTML::linkRoute('articulos.index', 'Articulos', ['submenu_id' => $subMenus['id']] , ['class' => 'btn btn-primary'] ) !!}
+                                            {!! HTML::linkRoute('articulos.edit', ' Editar', $articulos['id'] , ['class' => 'btn btn-primary'] ) !!}
+                                            {!! HTML::linkRoute('articulos.destroy', ' Borrar', $articulos['id'] , ['class' => 'btn btn-danger', 'data-method' => 'DELETE','data-confirm' => '¿Seguro desea eliminar la Actividad ' . $articulos['descripcion'] . '?', 'rel' => 'nofollow']) !!}
                                         </td>
                                     </tr>
                                     @endforeach
@@ -29,7 +28,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    {!! HTML::linkRoute('submenus.create', ' Crear SubMenu', ['menu_id' => $menu->id] , ['class' => 'btn btn-primary '] ) !!}
+                                    {!! HTML::linkRoute('articulos.create', ' Crear Articulo', ['submenu_id' => $submenu->id] , ['class' => 'btn btn-primary '] ) !!}
                                 </td>
                             </tr>
                         </table>
@@ -55,18 +54,19 @@
             $('#reporte').DataTable({
 
                         "lengthMenu": [ [8,  16, 32, -1], [8, 16, 32, "Todos"] ],
+                        "order": [[ 3, "desc" ]],
                         language: {
                             search: "Buscar:",
                             "thousands": ",",
                             processing:     "Traitement en cours...",
-                            lengthMenu:    "Mostrar _MENU_ actividades",
+                            lengthMenu:    "Mostrar _MENU_ menus",
                             info:           "Mostrando del  _START_ al _END_ de _TOTAL_ moviles",
-                            infoEmpty:      "0 moviles",
-                            infoFiltered:   "(Filtrando _MAX_ actividades en total)",
+                            infoEmpty:      "0 menues",
+                            infoFiltered:   "(Filtrando _MAX_ menus en total)",
                             infoPostFix:    "",
                             loadingRecords: "Chargement en cours...",
-                            zeroRecords:    "No se encontraron actividades asignadas para esa busqueda",
-                            emptyTable:     "No existen actividades asignadas",
+                            zeroRecords:    "No se encontraron menus asignadas para esa busqueda",
+                            emptyTable:     "No existen menus asignadas",
                             paginate: {
                                 first:      "Primero",
                                 previous:   "Anterior",

@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-12 ">
                 <div class="panel panel-primary">
-                    <div class="panel-heading"><i class="fa fa-cog">Menu Para Catalogo: </i> {{{$nombreCatalogo}}}</div>
+                    <div class="panel-heading"><i class="fa fa-cog">Menu Para Catalogo: </i> {{{$catalogo->nombre}}}</div>
                     <div class="panel-body">
                             <table id="reporte" class="table table-striped table-bordered records_list">
                                 <thead>
@@ -29,7 +29,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    {!! HTML::linkRoute('menus.create', ' Crear Menu', null , ['class' => 'btn btn-primary '] ) !!}
+                                    {!! HTML::linkRoute('menus.create', ' Crear Menu', ['catalogo_id' => $catalogo->id] , ['class' => 'btn btn-primary '] ) !!}
                                 </td>
                             </tr>
                         </table>
@@ -59,14 +59,14 @@
                             search: "Buscar:",
                             "thousands": ",",
                             processing:     "Traitement en cours...",
-                            lengthMenu:    "Mostrar _MENU_ actividades",
+                            lengthMenu:    "Mostrar _MENU_ menus",
                             info:           "Mostrando del  _START_ al _END_ de _TOTAL_ moviles",
-                            infoEmpty:      "0 moviles",
-                            infoFiltered:   "(Filtrando _MAX_ actividades en total)",
+                            infoEmpty:      "0 menues",
+                            infoFiltered:   "(Filtrando _MAX_ menus en total)",
                             infoPostFix:    "",
                             loadingRecords: "Chargement en cours...",
-                            zeroRecords:    "No se encontraron actividades asignadas para esa busqueda",
-                            emptyTable:     "No existen actividades asignadas",
+                            zeroRecords:    "No se encontraron menus asignadas para esa busqueda",
+                            emptyTable:     "No existen menus asignadas",
                             paginate: {
                                 first:      "Primero",
                                 previous:   "Anterior",

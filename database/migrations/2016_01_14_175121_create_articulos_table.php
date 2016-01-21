@@ -15,7 +15,11 @@ class CreateArticulosTable extends Migration {
 		Schema::create('articulos', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->string('cod_articulo');
             $table->string('descripcion');
+            $table->string('image_path_1');
+            $table->string('image_path_2');
+            $table->string('image_path_3    ');
             $table->integer('submenu_id')->unsigned();
             $table->foreign('submenu_id')->references('id')->on('sub_menus')->onDelete('cascade');
 

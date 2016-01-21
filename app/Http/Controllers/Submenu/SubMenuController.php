@@ -19,8 +19,8 @@ class SubMenuController extends Controller {
 	{
         $subMenus = SubMenu::where('menu_id',Input::get('menus_id'))->get();
         if (Menu::find(Input::get('menus_id'))){
-            $nombreMenu = Menu::find(Input::get('menus_id'))->titulo;
-            return view('submenu.reporte', compact('subMenus','nombreMenu'));
+            $menu = Menu::find(Input::get('menus_id'));
+            return view('submenu.reporte', compact('subMenus','menu'));
         }
             //Hay que cambiar por error desde HTML
             dd('No hay SubMenu');
@@ -33,7 +33,8 @@ class SubMenuController extends Controller {
 	 */
 	public function create()
 	{
-		//
+        $menu_id = Input::get('menu_id');
+        return view ('Submenu.nuevo', compact('menu_id'));
 	}
 
 	/**
@@ -43,8 +44,12 @@ class SubMenuController extends Controller {
 	 */
 	public function store()
 	{
-		//
-	}
+        SubMenu::create([
+            'titulo' => Input::get('submenu'),
+            'menu_id' => Input::get('menu_id'),
+        ]);
+        return redirect()->route('submenus.index',['menus_id' => Input::get('menu_id')]);
+    }
 
 	/**
 	 * Display the specified resource.
@@ -87,7 +92,10 @@ class SubMenuController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
-	}
+        $subMenu = SubMenu::find($id);
+        $menu_id = $subMenu->menu_id;
+        $subMenu->delete();
+        return redirect()->route('submenus.index',['menus_id' =>$menu_id]);
+    }
 
 }
