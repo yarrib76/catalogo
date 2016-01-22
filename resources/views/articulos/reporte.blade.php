@@ -9,7 +9,8 @@
                         <table id="reporte" class="table table-striped table-bordered records_list">
                             <thead>
                             <tr>
-                                <th>Nombre</th>
+                                <th>Cod Articulo</th>
+                                <th>Descripcion</th>
                                 <th>Imagen</th>
                                 <th>Accion</th>
                             </tr>
@@ -17,6 +18,7 @@
                             <tbody>
                             @foreach($articulos as $articulos)
                                 <tr>
+                                    <td>{{$articulos['cod_articulo']}}</td>
                                     <td>{{$articulos['descripcion']}}</td>
                                     <td>
                                         @if(!empty($articulos['image_name_1']))
