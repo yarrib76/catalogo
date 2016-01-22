@@ -19,9 +19,15 @@
                                     <tr>
                                         <td>{{$articulos['descripcion']}}</td>
                                         <td>
-                                            <img src="/images/fabrics/{{{$articulos['image_name_1']}}}" alt="Sin Imagen" height="52" width="75">
-                                            <img src="/images/fabrics/{{{$articulos['image_name_2']}}}" alt="Sin Imagen" height="52" width="75">
-                                            <img src="/images/fabrics/{{{$articulos['image_name_3']}}}" alt="Sin Imagen" height="52" width="75">
+                                            @if(!empty($articulos['image_name_1']))
+                                                <img src="/images/fabrics/{{{$articulos['image_name_1']}}}" alt="Sin Imagen" height="52" width="52">
+                                            @endif
+                                            @if(!empty($articulos['image_name_2']))
+                                                <img src="/images/fabrics/{{{$articulos['image_name_2']}}}" alt="Sin Imagen" height="52" width="52">
+                                            @endif
+                                            @if(!empty($articulos['image_name_3']))
+                                                <img src="/images/fabrics/{{{$articulos['image_name_3']}}}" alt="Sin Imagen" height="52" width="52">
+                                            @endif
                                         </td>
                                         <td>
                                             {!! HTML::linkRoute('articulos.edit', ' Editar', $articulos['id'] , ['class' => 'btn btn-primary'] ) !!}
