@@ -23,7 +23,10 @@ Route::resource('menus', 'Menu\MenuController');
 Route::resource('submenus', 'Submenu\SubMenuController');
 Route::resource('articulos', 'Articulo\ArticuloController');
 
+//Route::resource('loadimages', 'Api\ImageController');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+

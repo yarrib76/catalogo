@@ -45,25 +45,26 @@ class ArticuloController extends Controller {
 	 */
 	public function store()
 	{
-        $imageName1 = Input::get('cod_articulo') . "1" . Carbon::now()->toDateTimeString();
-        $imageName2 = Input::get('cod_articulo') . "2" . Carbon::now()->toDateTimeString();
-        $imageName3 = Input::get('cod_articulo') . "3" . Carbon::now()->toDateTimeString();
-
-      //  dd(Input::file('image_path_1')->originalName);
-        Input::file('image_name_1')->move(
-            base_path() . '/articulos/fabrics/',
-            $imageName1 . "."
-            . Input::file('image_name_1')->getClientOriginalExtension());
-
-        Input::file('image_name_2')->move(
-            base_path() . '/articulos/fabrics/',
-            $imageName2 . "."
-            . Input::file('image_name_2')->getClientOriginalExtension());
-
-        Input::file('image_name_3')->move(
-            base_path() . '/articulos/fabrics/',
-            $imageName3 . "."
-            . Input::file('image_name_3')->getClientOriginalExtension());
+        //Defino el lugar donde van a ir copiadas las imagenes
+        $path = '/public/images/fabrics';
+        $imageName1 = "";
+        $imageName2 = "";
+        $imageName3 = "";
+        if (Input::file('image_name_1')){
+            $imageName1 = Input::get('cod_articulo') . "1" . Carbon::now()->toTimeString() . "." . Input::file('image_name_1')->getClientOriginalExtension();
+            Input::file('image_name_1')->move(
+                base_path() . $path, $imageName1);
+        }
+        if (Input::file('image_name_2')){
+            $imageName2 = Input::get('cod_articulo') . "2" . Carbon::now()->toTimeString() . "." . Input::file('image_name_2')->getClientOriginalExtension();
+            Input::file('image_name_2')->move(
+                base_path() . $path, $imageName2);
+        }
+        if (Input::file('image_name_3')){
+            $imageName3 = Input::get('cod_articulo') . "3" . Carbon::now()->toTimeString() . "." . Input::file('image_name_3')->getClientOriginalExtension();
+            Input::file('image_name_3')->move(
+                base_path() . $path, $imageName3);
+        }
 
         Articulos::create([
             'cod_articulo' => Input::get('cod_articulo'),
@@ -72,7 +73,6 @@ class ArticuloController extends Controller {
             'image_name_1' => $imageName1,
             'image_name_2' => $imageName2,
             'image_name_3' => $imageName3,
-
         ]);
         return redirect()->route('articulos.index',['submenu_id' => Input::get('submenu_id')]);
 

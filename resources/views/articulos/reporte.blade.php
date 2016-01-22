@@ -10,6 +10,7 @@
                                 <thead>
                                 <tr>
                                     <th>Nombre</th>
+                                    <th>Imagen</th>
                                     <th>Accion</th>
                                 </tr>
                                 </thead>
@@ -17,6 +18,11 @@
                                     @foreach($articulos as $articulos)
                                     <tr>
                                         <td>{{$articulos['descripcion']}}</td>
+                                        <td>
+                                            <img src="/images/fabrics/{{{$articulos['image_name_1']}}}" alt="Sin Imagen" height="52" width="75">
+                                            <img src="/images/fabrics/{{{$articulos['image_name_2']}}}" alt="Sin Imagen" height="52" width="75">
+                                            <img src="/images/fabrics/{{{$articulos['image_name_3']}}}" alt="Sin Imagen" height="52" width="75">
+                                        </td>
                                         <td>
                                             {!! HTML::linkRoute('articulos.edit', ' Editar', $articulos['id'] , ['class' => 'btn btn-primary'] ) !!}
                                             {!! HTML::linkRoute('articulos.destroy', ' Borrar', $articulos['id'] , ['class' => 'btn btn-danger', 'data-method' => 'DELETE','data-confirm' => '¿Seguro desea eliminar la Actividad ' . $articulos['descripcion'] . '?', 'rel' => 'nofollow']) !!}
