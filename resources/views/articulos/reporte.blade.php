@@ -6,37 +6,37 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading"><i class="fa fa-cog">Articulo Para Submenu: </i> {{{$submenu->titulo}}}</div>
                     <div class="panel-body">
-                            <table id="reporte" class="table table-striped table-bordered records_list">
-                                <thead>
+                        <table id="reporte" class="table table-striped table-bordered records_list">
+                            <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Imagen</th>
+                                <th>Accion</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($articulos as $articulos)
                                 <tr>
-                                    <th>Nombre</th>
-                                    <th>Imagen</th>
-                                    <th>Accion</th>
+                                    <td>{{$articulos['descripcion']}}</td>
+                                    <td>
+                                        @if(!empty($articulos['image_name_1']))
+                                            <img src="/images/fabrics/{{{$articulos['image_name_1']}}}" alt="Sin Imagen" height="52" width="52">
+                                        @endif
+                                        @if(!empty($articulos['image_name_2']))
+                                            <img src="/images/fabrics/{{{$articulos['image_name_2']}}}" alt="Sin Imagen" height="52" width="52">
+                                        @endif
+                                        @if(!empty($articulos['image_name_3']))
+                                            <img src="/images/fabrics/{{{$articulos['image_name_3']}}}" alt="Sin Imagen" height="52" width="52">
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {!! HTML::linkRoute('articulos.edit', ' Editar', $articulos['id'] , ['class' => 'btn btn-primary'] ) !!}
+                                        {!! HTML::linkRoute('articulos.destroy', ' Borrar', $articulos['id'] , ['class' => 'btn btn-danger', 'data-method' => 'DELETE','data-confirm' => '¿Seguro desea eliminar la Actividad ' . $articulos['descripcion'] . '?', 'rel' => 'nofollow']) !!}
+                                    </td>
                                 </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($articulos as $articulos)
-                                    <tr>
-                                        <td>{{$articulos['descripcion']}}</td>
-                                        <td>
-                                            @if(!empty($articulos['image_name_1']))
-                                                <img src="/images/fabrics/{{{$articulos['image_name_1']}}}" alt="Sin Imagen" height="52" width="52">
-                                            @endif
-                                            @if(!empty($articulos['image_name_2']))
-                                                <img src="/images/fabrics/{{{$articulos['image_name_2']}}}" alt="Sin Imagen" height="52" width="52">
-                                            @endif
-                                            @if(!empty($articulos['image_name_3']))
-                                                <img src="/images/fabrics/{{{$articulos['image_name_3']}}}" alt="Sin Imagen" height="52" width="52">
-                                            @endif
-                                        </td>
-                                        <td>
-                                            {!! HTML::linkRoute('articulos.edit', ' Editar', $articulos['id'] , ['class' => 'btn btn-primary'] ) !!}
-                                            {!! HTML::linkRoute('articulos.destroy', ' Borrar', $articulos['id'] , ['class' => 'btn btn-danger', 'data-method' => 'DELETE','data-confirm' => '¿Seguro desea eliminar la Actividad ' . $articulos['descripcion'] . '?', 'rel' => 'nofollow']) !!}
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            @endforeach
+                            </tbody>
+                        </table>
                         <table>
                             <tr>
                                 <td>
