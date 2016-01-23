@@ -20,7 +20,7 @@ class SubMenuController extends Controller {
         $subMenus = SubMenu::where('menu_id',Input::get('menus_id'))->get();
         if (Menu::find(Input::get('menus_id'))){
             $menu = Menu::find(Input::get('menus_id'));
-            return view('submenu.reporte', compact('subMenus','menu'));
+            return view('Submenu.reporte', compact('subMenus','menu'));
         }
             //Hay que cambiar por error desde HTML
             dd('No hay SubMenu');
