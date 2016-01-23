@@ -14,7 +14,7 @@ class EnviarCatalogoController extends Controller {
     public function catalogo(){
         $cliente_id = User::where('email', Input::get('email'))->get()[0]->
         load('miembrosDe')['miembrosDe'][0]->cliente_id;
-        $catalogo = Catalogos::find(9)->load('menu')['menu'];
+        $catalogo = Catalogos::find(Input::get('catalogo_id'))->load('menu')['menu'];
         $catalogo = $this->preparoCatalogo($catalogo);
         return Response::json($catalogo);
 
