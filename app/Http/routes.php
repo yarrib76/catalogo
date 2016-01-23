@@ -30,3 +30,10 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+Route::group(['prefix' => 'api'],
+    function () {
+
+        Route::get('/enviarcatalogo', 'Api\EnviarCatalogoController@catalogo');
+
+    });
+

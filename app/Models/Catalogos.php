@@ -11,4 +11,9 @@ class Catalogos extends Model {
 
         return $this->belongsTo('Catalogos\Models\Clientes', 'cliente_id');
     }
+
+    public function menu(){
+
+        return $this->hasMany('Catalogos\Models\Menu', 'catalogo_id');
+    }
 }

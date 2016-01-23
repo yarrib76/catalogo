@@ -35,4 +35,5 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany('Catalogos\Models\MiembrosDe', 'usuario_id');
     }
+
 }
