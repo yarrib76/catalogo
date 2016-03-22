@@ -9,8 +9,10 @@
                         <table id="reporte" class="table table-striped table-bordered records_list">
                             <thead>
                             <tr>
-                                <th>Cod Articulo</th>
                                 <th>Descripcion</th>
+                                <th>1ra Caracteristica</th>
+                                <th>2da Caracteristica</th>
+                                <th>3ra Caracteristica</th>
                                 <th>Imagen</th>
                                 <th>Accion</th>
                             </tr>
@@ -18,8 +20,10 @@
                             <tbody>
                             @foreach($articulos as $articulos)
                                 <tr>
-                                    <td>{{$articulos['cod_articulo']}}</td>
                                     <td>{{$articulos['descripcion']}}</td>
+                                    <td>{{$articulos['caracteristica_1']}}</td>
+                                    <td>{{$articulos['caracteristica_2']}}</td>
+                                    <td>{{$articulos['caracteristica_3']}}</td>
                                     <td>
                                         @if(!empty($articulos['image_name_1']))
                                             <img src="/images/fabrics/{{{$articulos['image_name_1']}}}" alt="Sin Imagen" height="52" width="52">

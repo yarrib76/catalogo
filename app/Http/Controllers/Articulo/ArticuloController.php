@@ -51,28 +51,25 @@ class ArticuloController extends Controller {
         $imageName2 = "";
         $imageName3 = "";
         if (Input::file('image_name_1')){
-            $imageName1 = Input::get('cod_articulo') . "1" . Carbon::now()->toTimeString() . "." . Input::file('image_name_1')->getClientOriginalExtension();
-            Input::file('image_name_1')->move(
-                base_path() . $path, $imageName1);
+            $imageName1 = Input::file('image_name_1')->getClientOriginalName();
         }
         if (Input::file('image_name_2')){
-            $imageName2 = Input::get('cod_articulo') . "2" . Carbon::now()->toTimeString() . "." . Input::file('image_name_2')->getClientOriginalExtension();
-            Input::file('image_name_2')->move(
-                base_path() . $path, $imageName2);
+            $imageName2 = Input::file('image_name_2')->getClientOriginalName();
         }
-        if (Input::file('image_name_3')){
-            $imageName3 = Input::get('cod_articulo') . "3" . Carbon::now()->toTimeString() . "." . Input::file('image_name_3')->getClientOriginalExtension();
-            Input::file('image_name_3')->move(
-                base_path() . $path, $imageName3);
+        if (Input::file('image_name_1')){
+            $imageName3 = Input::file('image_name_3')->getClientOriginalName();
         }
-
+        $this->muevoArchivosImages($imageName1,$imageName2,$imageName3,$path);
         Articulos::create([
-            'cod_articulo' => Input::get('cod_articulo'),
+            'orden' => Input::get('orden'),
             'descripcion' => Input::get('descripcion'),
             'submenu_id' => Input::get('submenu_id'),
             'image_name_1' => $imageName1,
             'image_name_2' => $imageName2,
             'image_name_3' => $imageName3,
+            'caracteristica_1' => Input::get('caracteristica_1'),
+            'caracteristica_2' => Input::get('caracteristica_2'),
+            'caracteristica_3' => Input::get('caracteristica_3'),
         ]);
         return redirect()->route('articulos.index',['submenu_id' => Input::get('submenu_id')]);
 
@@ -86,7 +83,7 @@ class ArticuloController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+        //
 	}
 
 	/**
@@ -97,8 +94,9 @@ class ArticuloController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
-	}
+        $articulo = Articulos::find($id);
+        return view('articulos.edit', compact('articulo'));
+    }
 
 	/**
 	 * Update the specified resource in storage.
@@ -108,8 +106,35 @@ class ArticuloController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
-	}
+        $path = '/public/images/fabrics';
+        $imageName1 = Input::get('image_name_1');
+        $imageName2 = Input::get('image_name_2');
+        $imageName3 = Input::get('image_name_3');
+        if (Input::file('image_name_1')){
+            $imageName1 = Input::file('image_name_1')->getClientOriginalName();
+        }
+        if (Input::file('image_name_2')){
+            $imageName2 = Input::file('image_name_2')->getClientOriginalName();
+        }
+        if (Input::file('image_name_3')){
+            $imageName3 = Input::file('image_name_3')->getClientOriginalName();
+        }
+        $this->muevoArchivosImages($imageName1,$imageName2,$imageName3,$path);
+
+       // $articulo = Articulos::find($id);
+       // $articulo->fill(\Request::input())->save();+
+        Articulos::find($id)->update([
+            'orden' => Input::get('orden'),
+            'descripcion' => Input::get('descripcion'),
+            'image_name_1' => $imageName1,
+            'image_name_2' => $imageName2,
+            'image_name_3' => $imageName3,
+            'caracteristica_1' => Input::get('caracteristica_1'),
+            'caracteristica_2' => Input::get('caracteristica_2'),
+            'caracteristica_3' => Input::get('caracteristica_3'),
+    ]);
+
+    }
 
 	/**
 	 * Remove the specified resource from storage.
@@ -126,4 +151,22 @@ class ArticuloController extends Controller {
 
     }
 
+    public function muevoArchivosImages($imageName1,$imageName2,$imageName3,$path)
+    {
+        if (Input::file('image_name_1')){
+            //  $imageName1 = Input::get('cod_articulo') . "1" . Carbon::now()->toTimeString() . "." . Input::file('image_name_1')->getClientOriginalExtension();
+            Input::file('image_name_1')->move(
+                base_path() . $path, $imageName1);
+        }
+        if (Input::file('image_name_2')){
+            //   $imageName2 = Input::get('cod_articulo') . "2" . Carbon::now()->toTimeString() . "." . Input::file('image_name_2')->getClientOriginalExtension();
+            Input::file('image_name_2')->move(
+                base_path() . $path, $imageName2);
+        }
+        if (Input::file('image_name_3')){
+            //    $imageName3 = Input::get('cod_articulo') . "3" . Carbon::now()->toTimeString() . "." . Input::file('image_name_3')->getClientOriginalExtension();
+            Input::file('image_name_3')->move(
+                base_path() . $path, $imageName3);
+        }
+    }
 }
