@@ -56,7 +56,7 @@ class ArticuloController extends Controller {
         if (Input::file('image_name_2')){
             $imageName2 = Input::file('image_name_2')->getClientOriginalName();
         }
-        if (Input::file('image_name_1')){
+        if (Input::file('image_name_3')){
             $imageName3 = Input::file('image_name_3')->getClientOriginalName();
         }
         $this->muevoArchivosImages($imageName1,$imageName2,$imageName3,$path);
@@ -95,7 +95,8 @@ class ArticuloController extends Controller {
 	public function edit($id)
 	{
         $articulo = Articulos::find($id);
-        return view('articulos.edit', compact('articulo'));
+        $submenu_id = $articulo->submenu_id;
+        return view('articulos.edit', compact('articulo','submenu_id'));
     }
 
 	/**
@@ -133,7 +134,7 @@ class ArticuloController extends Controller {
             'caracteristica_2' => Input::get('caracteristica_2'),
             'caracteristica_3' => Input::get('caracteristica_3'),
     ]);
-
+        return redirect()->route('articulos.index',['submenu_id' => Input::get('submenu_id')]);
     }
 
 	/**

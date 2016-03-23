@@ -1,7 +1,7 @@
 <div class="form-group">
     {!! Form::label('orden', 'Orden:', ['class' => 'col-sm-3 control-label']) !!}
     <div class="col-sm-6">
-        {!! Form::input('orden', 'orden', $articulo->orden, ['id' => 'orden', 'class' => 'form-control nombre', 'name' => 'orden', 'placeholder' => 'Orden'])  !!}
+        {!! Form::input('number', 'orden', $articulo->orden, ['id' => 'orden', 'class' => 'form-control nombre', 'name' => 'orden', 'placeholder' => 'Orden'])  !!}
     </div>
 </div>
 
@@ -46,7 +46,8 @@
                     @if(!empty($articulo->image_name_1))
                         <img style="display: inline;" id="uploadPreview1"
                              src="/images/fabrics/{{{$articulo->image_name_1}}}" alt="" height="52" width="52"/>
-                            <input type="hidden" name="image_name_1" value={{{$articulo->image_name_1}}} >
+                        <input type="hidden" name="image_name_1" id="input_image_name_1" value={{{$articulo->image_name_1}}} >
+                        <button type="button" name="eliminar" value="eliminar" onClick="borrar(1)" />
                     @else
                         <img style="display: none;" id="uploadPreview1" src="#" alt="" height="52" width="52"/>
                     @endif
@@ -68,7 +69,8 @@
                     @if(!empty($articulo->image_name_2))
                         <img style="display: inline;" id="uploadPreview2"
                              src="/images/fabrics/{{{$articulo->image_name_2}}}" alt="" height="52" width="52"/>
-                             <input type="hidden" name="image_name_2" value={{{$articulo->image_name_2}}} >
+                        <input type="hidden" name="image_name_2" id="input_image_name_2" value={{{$articulo->image_name_2}}} >
+                        <button type="button" name="eliminar" value="eliminar" onClick="borrar(2)" />
                     @else
                         <img style="display: none;" id="uploadPreview2" src="#" alt="" height="52" width="52"/>
                     @endif
@@ -90,7 +92,8 @@
                     @if(!empty($articulo->image_name_3))
                         <img style="display: inline;" id="uploadPreview3"
                              src="/images/fabrics/{{{$articulo->image_name_3}}}" alt="" height="52" width="52"/>
-                            <input type="hidden" name="image_name_3" value={{{$articulo->image_name_3}}} >
+                        <input type="hidden" name="image_name_3" id="input_image_name_3" value={{{$articulo->image_name_3}}} >
+                        <button type="button" name="eliminar" value="eliminar" onClick="borrar(3)" />
                     @else
                         <img style="display: none;" id="uploadPreview3" src="#" alt="" height="52" width="52"/>
                     @endif
@@ -129,6 +132,23 @@
 
             };
         };
+        function borrar(imagen){
+            if(imagen == 1){
+                document.getElementById("input_image_name_1").value = "";
+                document.getElementById("uploadPreview1").src = ""
+                document.getElementById("uploadPreview1").style.display = "none";
+            }
+            if(imagen == 2){
+                document.getElementById("input_image_name_2").value = "";
+                document.getElementById("uploadPreview2").src = ""
+                document.getElementById("uploadPreview2").style.display = "none";
+            }
+            if(imagen == 3){
+                document.getElementById("input_image_name_3").value = "";
+                document.getElementById("uploadPreview3").src = ""
+                document.getElementById("uploadPreview3").style.display = "none";
+            }
+        }
     </script>
 @stop
 

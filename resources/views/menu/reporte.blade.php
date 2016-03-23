@@ -60,7 +60,7 @@
                             "thousands": ",",
                             processing:     "Traitement en cours...",
                             lengthMenu:    "Mostrar _MENU_ menus",
-                            info:           "Mostrando del  _START_ al _END_ de _TOTAL_ moviles",
+                            info:           "Mostrando del  _START_ al _END_ de _TOTAL_ menues",
                             infoEmpty:      "0 menues",
                             infoFiltered:   "(Filtrando _MAX_ menus en total)",
                             infoPostFix:    "",

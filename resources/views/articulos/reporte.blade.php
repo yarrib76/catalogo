@@ -9,6 +9,7 @@
                         <table id="reporte" class="table table-striped table-bordered records_list">
                             <thead>
                             <tr>
+                                <th>Orden</th>
                                 <th>Descripcion</th>
                                 <th>1ra Caracteristica</th>
                                 <th>2da Caracteristica</th>
@@ -20,6 +21,7 @@
                             <tbody>
                             @foreach($articulos as $articulos)
                                 <tr>
+                                    <td>{{$articulos['orden']}}</td>
                                     <td>{{$articulos['descripcion']}}</td>
                                     <td>{{$articulos['caracteristica_1']}}</td>
                                     <td>{{$articulos['caracteristica_2']}}</td>
@@ -72,19 +74,19 @@
             $('#reporte').DataTable({
 
                         "lengthMenu": [ [8,  16, 32, -1], [8, 16, 32, "Todos"] ],
-                        "order": [[ 3, "desc" ]],
+                        "order": [[ 0, "asc" ]],
                         language: {
                             search: "Buscar:",
                             "thousands": ",",
                             processing:     "Traitement en cours...",
-                            lengthMenu:    "Mostrar _MENU_ menus",
-                            info:           "Mostrando del  _START_ al _END_ de _TOTAL_ moviles",
-                            infoEmpty:      "0 menues",
-                            infoFiltered:   "(Filtrando _MAX_ menus en total)",
+                            lengthMenu:    "Mostrar _MENU_ articulos",
+                            info:           "Mostrando del  _START_ al _END_ de _TOTAL_ Articulos",
+                            infoEmpty:      "0 articulos",
+                            infoFiltered:   "(Filtrando _MAX_ articulos en total)",
                             infoPostFix:    "",
                             loadingRecords: "Chargement en cours...",
-                            zeroRecords:    "No se encontraron menus asignadas para esa busqueda",
-                            emptyTable:     "No existen menus asignadas",
+                            zeroRecords:    "No se encontraron articulos asignadas para esa busqueda",
+                            emptyTable:     "No existen articulos asignadas",
                             paginate: {
                                 first:      "Primero",
                                 previous:   "Anterior",
