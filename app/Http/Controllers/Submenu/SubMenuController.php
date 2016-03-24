@@ -72,7 +72,8 @@ class SubMenuController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+        $subMenus = SubMenu::find($id);
+        return view('Submenu.edit', compact('subMenus'));
 	}
 
 	/**
@@ -83,8 +84,11 @@ class SubMenuController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
-	}
+        $subMenus = SubMenu::find($id);
+        $subMenus->fill(\Request::input())->save();
+        return redirect()->route('submenus.index',['menus_id' => Input::get('menu_id')]);
+
+    }
 
 	/**
 	 * Remove the specified resource from storage.
