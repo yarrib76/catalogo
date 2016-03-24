@@ -31,6 +31,9 @@
                                 <td>
                                     {!! HTML::linkRoute('submenus.create', ' Crear SubMenu', ['menu_id' => $menu->id] , ['class' => 'btn btn-primary '] ) !!}
                                 </td>
+                                <td>
+                                    {!! HTML::linkRoute('menus.index', 'Volver al catalogo: ' . $catalogo->nombre, ['catalogo_id' => $catalogo->id] , ['class' => 'btn btn-success'] ) !!}
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -59,14 +62,14 @@
                             search: "Buscar:",
                             "thousands": ",",
                             processing:     "Traitement en cours...",
-                            lengthMenu:    "Mostrar _MENU_ actividades",
+                            lengthMenu:    "Mostrar _MENU_ submenues",
                             info:           "Mostrando del  _START_ al _END_ de _TOTAL_ Submenues",
                             infoEmpty:      "0 submenues",
                             infoFiltered:   "(Filtrando _MAX_ actividades en total)",
                             infoPostFix:    "",
                             loadingRecords: "Chargement en cours...",
-                            zeroRecords:    "No se encontraron actividades asignadas para esa busqueda",
-                            emptyTable:     "No existen actividades asignadas",
+                            zeroRecords:    "No se encontraron submenues asignadas para esa busqueda",
+                            emptyTable:     "No existen submenues asignadas",
                             paginate: {
                                 first:      "Primero",
                                 previous:   "Anterior",

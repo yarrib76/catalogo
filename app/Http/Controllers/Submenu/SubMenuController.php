@@ -3,6 +3,7 @@
 use Catalogos\Http\Requests;
 use Catalogos\Http\Controllers\Controller;
 
+use Catalogos\Models\Catalogos;
 use Catalogos\Models\Menu;
 use Catalogos\Models\SubMenu;
 use Illuminate\Http\Request;
@@ -20,7 +21,8 @@ class SubMenuController extends Controller {
         $subMenus = SubMenu::where('menu_id',Input::get('menus_id'))->get();
         if (Menu::find(Input::get('menus_id'))){
             $menu = Menu::find(Input::get('menus_id'));
-            return view('Submenu.reporte', compact('subMenus','menu'));
+            $catalogo = Catalogos::find($menu->catalogo_id);
+            return view('Submenu.reporte', compact('subMenus','menu','catalogo'));
         }
             //Hay que cambiar por error desde HTML
             dd('No hay SubMenu');

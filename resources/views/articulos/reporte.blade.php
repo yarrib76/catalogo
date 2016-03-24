@@ -50,6 +50,9 @@
                                 <td>
                                     {!! HTML::linkRoute('articulos.create', ' Crear Articulo', ['submenu_id' => $submenu->id] , ['class' => 'btn btn-primary '] ) !!}
                                 </td>
+                                <td>
+                                    {!! HTML::linkRoute('submenus.index', 'Volver al SubMenu: ' . $submenu->titulo, ['menus_id' => $submenu->menu_id] , ['class' => 'btn btn-success'] ) !!}
+                                </td>
                             </tr>
                         </table>
                     </div>

@@ -31,6 +31,9 @@
                                 <td>
                                     {!! HTML::linkRoute('menus.create', ' Crear Menu', ['catalogo_id' => $catalogo->id] , ['class' => 'btn btn-primary '] ) !!}
                                 </td>
+                                <td>
+                                    {!! HTML::linkRoute('catalogos.index', 'Volver a los catalogos', ['catalogo_id' => $catalogo->id] , ['class' => 'btn btn-success'] ) !!}
+                                </td>
                             </tr>
                         </table>
                     </div>
