@@ -20,9 +20,12 @@ class CreateArticulosTable extends Migration {
             $table->string('image_name_1');
             $table->string('image_name_2');
             $table->string('image_name_3');
+            $table->string('caracteristica_1');
+            $table->string('caracteristica_2');
+            $table->string('caracteristica_3');
+            $table->integer('orden');
             $table->integer('submenu_id')->unsigned();
             $table->foreign('submenu_id')->references('id')->on('sub_menus')->onDelete('cascade');
-
 			$table->timestamps();
 		});
 	}

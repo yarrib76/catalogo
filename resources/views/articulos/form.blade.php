@@ -1,13 +1,35 @@
 <div class="form-group">
-    {!! Form::label('codigo_articulo', 'Codigo del Articulo:', ['class' => 'col-sm-3 control-label']) !!}
+    {!! Form::label('orden', 'Orden:', ['class' => 'col-sm-3 control-label']) !!}
     <div class="col-sm-6">
-        {!! Form::input('cod_articulo', 'cod_articulo', null, ['id' => 'cod_articulo', 'class' => 'form-control nombre', 'name' => 'cod_articulo', 'placeholder' => 'Codigo del Articulo'])  !!}
+        {!! Form::input('orden', 'orden', null, ['id' => 'orden', 'class' => 'form-control nombre', 'name' => 'orden', 'placeholder' => 'Orden'])  !!}
     </div>
 </div>
+
 <div class="form-group">
     {!! Form::label('descripcion', 'Descripcion:', ['class' => 'col-sm-3 control-label']) !!}
     <div class="col-sm-6">
         {!! Form::input('descripcion', 'descripcion', null, ['id' => 'descripcion', 'class' => 'form-control nombre', 'name' => 'descripcion', 'placeholder' => 'Descripcion'])  !!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('caracteristica_1', '1ra Caracteristica:', ['class' => 'col-sm-3 control-label']) !!}
+    <div class="col-sm-6">
+        {!! Form::input('caracteristica_1', 'caracteristica_1', null, ['id' => 'caracteristica_1', 'class' => 'form-control nombre', 'name' => 'caracteristica_1', 'placeholder' => '1ra Caracteristica'])  !!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('caracteristica_2', '2da Caracteristica:', ['class' => 'col-sm-3 control-label']) !!}
+    <div class="col-sm-6">
+        {!! Form::input('caracteristica_2', 'caracteristica_2', null, ['id' => 'caracteristica_2', 'class' => 'form-control nombre', 'name' => 'caracteristica_2', 'placeholder' => '2da Caracteristica'])  !!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('caracteristica_3', '3ra Caracteristica:', ['class' => 'col-sm-3 control-label']) !!}
+    <div class="col-sm-6">
+        {!! Form::input('caracteristica_3', 'caracteristica_3', null, ['id' => 'caracteristica_3', 'class' => 'form-control nombre', 'name' => 'caracteristica_3', 'placeholder' => '3ra Caracteristica'])  !!}
     </div>
 </div>
 

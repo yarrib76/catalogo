@@ -31,6 +31,9 @@
                                 <td>
                                     {!! HTML::linkRoute('menus.create', ' Crear Menu', ['catalogo_id' => $catalogo->id] , ['class' => 'btn btn-primary '] ) !!}
                                 </td>
+                                <td>
+                                    {!! HTML::linkRoute('catalogos.index', 'Volver a los catalogos', ['catalogo_id' => $catalogo->id] , ['class' => 'btn btn-success'] ) !!}
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -60,7 +63,7 @@
                             "thousands": ",",
                             processing:     "Traitement en cours...",
                             lengthMenu:    "Mostrar _MENU_ menus",
-                            info:           "Mostrando del  _START_ al _END_ de _TOTAL_ moviles",
+                            info:           "Mostrando del  _START_ al _END_ de _TOTAL_ menues",
                             infoEmpty:      "0 menues",
                             infoFiltered:   "(Filtrando _MAX_ menus en total)",
                             infoPostFix:    "",

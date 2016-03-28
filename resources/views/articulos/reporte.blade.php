@@ -9,8 +9,11 @@
                         <table id="reporte" class="table table-striped table-bordered records_list">
                             <thead>
                             <tr>
-                                <th>Cod Articulo</th>
+                                <th>Orden</th>
                                 <th>Descripcion</th>
+                                <th>1ra Caracteristica</th>
+                                <th>2da Caracteristica</th>
+                                <th>3ra Caracteristica</th>
                                 <th>Imagen</th>
                                 <th>Accion</th>
                             </tr>
@@ -18,8 +21,11 @@
                             <tbody>
                             @foreach($articulos as $articulos)
                                 <tr>
-                                    <td>{{$articulos['cod_articulo']}}</td>
+                                    <td>{{$articulos['orden']}}</td>
                                     <td>{{$articulos['descripcion']}}</td>
+                                    <td>{{$articulos['caracteristica_1']}}</td>
+                                    <td>{{$articulos['caracteristica_2']}}</td>
+                                    <td>{{$articulos['caracteristica_3']}}</td>
                                     <td>
                                         @if(!empty($articulos['image_name_1']))
                                             <img src="/images/fabrics/{{{$articulos['image_name_1']}}}" alt="Sin Imagen" height="52" width="52">
@@ -43,6 +49,9 @@
                             <tr>
                                 <td>
                                     {!! HTML::linkRoute('articulos.create', ' Crear Articulo', ['submenu_id' => $submenu->id] , ['class' => 'btn btn-primary '] ) !!}
+                                </td>
+                                <td>
+                                    {!! HTML::linkRoute('submenus.index', 'Volver al SubMenu: ' . $submenu->titulo, ['menus_id' => $submenu->menu_id] , ['class' => 'btn btn-success'] ) !!}
                                 </td>
                             </tr>
                         </table>
@@ -68,19 +77,19 @@
             $('#reporte').DataTable({
 
                         "lengthMenu": [ [8,  16, 32, -1], [8, 16, 32, "Todos"] ],
-                        "order": [[ 3, "desc" ]],
+                        "order": [[ 0, "asc" ]],
                         language: {
                             search: "Buscar:",
                             "thousands": ",",
                             processing:     "Traitement en cours...",
-                            lengthMenu:    "Mostrar _MENU_ menus",
-                            info:           "Mostrando del  _START_ al _END_ de _TOTAL_ moviles",
-                            infoEmpty:      "0 menues",
-                            infoFiltered:   "(Filtrando _MAX_ menus en total)",
+                            lengthMenu:    "Mostrar _MENU_ articulos",
+                            info:           "Mostrando del  _START_ al _END_ de _TOTAL_ Articulos",
+                            infoEmpty:      "0 articulos",
+                            infoFiltered:   "(Filtrando _MAX_ articulos en total)",
                             infoPostFix:    "",
                             loadingRecords: "Chargement en cours...",
-                            zeroRecords:    "No se encontraron menus asignadas para esa busqueda",
-                            emptyTable:     "No existen menus asignadas",
+                            zeroRecords:    "No se encontraron articulos asignadas para esa busqueda",
+                            emptyTable:     "No existen articulos asignadas",
                             paginate: {
                                 first:      "Primero",
                                 previous:   "Anterior",

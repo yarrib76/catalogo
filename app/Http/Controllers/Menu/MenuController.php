@@ -72,7 +72,8 @@ class MenuController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$menu = Menu::find($id);
+        return view('menu.edit', compact('menu'));
 	}
 
 	/**
@@ -83,8 +84,10 @@ class MenuController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
-	}
+        $menu = Menu::find($id);
+        $menu->fill(\Request::input())->save();
+        return redirect()->route('menus.index',['catalogo_id' => Input::get('catalogo_id')]);
+    }
 
 	/**
 	 * Remove the specified resource from storage.
