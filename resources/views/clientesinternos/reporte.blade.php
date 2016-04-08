@@ -11,7 +11,7 @@
                             <tr>
                                 <th>Nombre</th>
                                 <th>Sr</th>
-                                <th>Dom.</th>
+                                <th>Domicilio</th>
                                 <th>Localidad</th>
                                 <th>Provincia</th>
                                 <th>Cond Venta</th>
