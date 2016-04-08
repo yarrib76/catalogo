@@ -9,7 +9,7 @@
                             @include('errors.basic')
 
                             {!! Form::model($articulo,[ 'route' => ['articulos.update', $articulo->id], 'method' => 'PATCH','class' => 'form-horizontal', 'files' => true]) !!}
-                            @include('articulos.formedit')
+                            @include('articulos.formedit1')
                             <div class="col-sm-offset-3 col-sm-3">
                                 <input type="hidden" name="submenu_id" value={{{$submenu_id}}}>
                                 <button type="submit" class="btn btn-primary" name="modificar"><i class="fa fa-btn fa-plus"></i> Modificar</button>
