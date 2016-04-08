@@ -65,7 +65,7 @@
                     <input type="file" class="form-control" id="image_name_2" name="image_name_2"
                            onchange="PreviewImage2();">
                 </td>
-                <td >
+                <td>
                     @if(!empty($articulo->image_name_2))
                         <img style="display: inline;" id="uploadPreview2"
                              src="/images/fabrics/{{{$articulo->image_name_2}}}" alt="" height="52" width="52"/>
