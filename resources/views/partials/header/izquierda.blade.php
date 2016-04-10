@@ -24,5 +24,13 @@
                     <li><a href="/catalogos"> ABM </a></li>
                 </ul>
             </li>
+            <li class="dropdown">
+                <a href="/clientesint" class="dropdown-toggle fa fa-btn" data-toggle="dropdown">
+                    Clientes <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/clientesint"> ABM </a></li>
+                </ul>
+            </li>
         </ul>
     @endif

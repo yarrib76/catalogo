@@ -22,6 +22,7 @@ Route::resource('catalogos', 'Catalogo\CatalogoController');
 Route::resource('menus', 'Menu\MenuController');
 Route::resource('submenus', 'Submenu\SubMenuController');
 Route::resource('articulos', 'Articulo\ArticuloController');
+Route::resource('clientesint', 'ClientesInternos\ClientesInternosController');
 
 //Route::resource('loadimages', 'Api\ImageController');
 
