@@ -35,6 +35,7 @@ Route::group(['prefix' => 'api'],
     function () {
 
         Route::get('/enviarcatalogo', 'Api\EnviarCatalogoController@catalogo');
+        Route::get('/enviarclientes', 'Api\EnviarClientesController@clientes');
 
     });
 
