@@ -10,6 +10,7 @@
                                 <thead>
                                 <tr>
                                     <th>Nombre</th>
+                                    <th>Creado</th>
                                     <th>Accion</th>
                                 </tr>
                                 </thead>
@@ -17,6 +18,7 @@
                                     @foreach($menus as $menus)
                                     <tr>
                                         <td>{{$menus['titulo']}}</td>
+                                        <td>{{$menus['created_at']}}</td>
                                         <td>
                                             {!! HTML::linkRoute('menus.edit', ' Editar', $menus['id'] , ['class' => 'btn btn-primary'] ) !!}
                                             {!! HTML::linkRoute('menus.destroy', ' Borrar', $menus['id'] , ['class' => 'btn btn-danger', 'data-method' => 'DELETE','data-confirm' => '¿Seguro desea eliminar la Actividad ' . $menus['nombre'] . '?', 'rel' => 'nofollow']) !!}
@@ -58,6 +60,7 @@
             $('#reporte').DataTable({
 
                         "lengthMenu": [ [8,  16, 32, -1], [8, 16, 32, "Todos"] ],
+                        "order": [[ 1, "asc" ]],
                         language: {
                             search: "Buscar:",
                             "thousands": ",",

@@ -10,6 +10,7 @@
                                 <thead>
                                 <tr>
                                     <th>Nombre</th>
+                                    <th>Creado</th>
                                     <th>Accion</th>
                                 </tr>
                                 </thead>
@@ -17,6 +18,7 @@
                                     @foreach($subMenus as $subMenus)
                                     <tr>
                                         <td>{{$subMenus['titulo']}}</td>
+                                        <td>{{$subMenus['created_at']}}</td>
                                         <td>
                                             {!! HTML::linkRoute('submenus.edit', ' Editar', $subMenus['id'] , ['class' => 'btn btn-primary'] ) !!}
                                             {!! HTML::linkRoute('submenus.destroy', ' Borrar', $subMenus['id'] , ['class' => 'btn btn-danger', 'data-method' => 'DELETE','data-confirm' => '¿Seguro desea eliminar la Actividad ' . $subMenus['nombre'] . '?', 'rel' => 'nofollow']) !!}
@@ -58,6 +60,7 @@
             $('#reporte').DataTable({
 
                         "lengthMenu": [ [8,  16, 32, -1], [8, 16, 32, "Todos"] ],
+                        "order": [[ 1, "asc" ]],
                         language: {
                             search: "Buscar:",
                             "thousands": ",",
